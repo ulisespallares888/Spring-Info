@@ -16,7 +16,7 @@ public class Book extends BaseEntity {
     @Column(length = 40,columnDefinition = "varchar(40)",updatable = true, nullable = false)
     private String title;
 
-    @Column(length = 40,columnDefinition = "varchar(40)",updatable = false,nullable = false)
+    @Column(length = 40,columnDefinition = "varchar(40)",updatable = true,nullable = false)
     private String author;
 
 }

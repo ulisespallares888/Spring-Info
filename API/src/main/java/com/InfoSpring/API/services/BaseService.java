@@ -1,7 +1,6 @@
 package com.InfoSpring.API.services;
 
 import com.InfoSpring.API.domain.BaseEntity;
-import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 

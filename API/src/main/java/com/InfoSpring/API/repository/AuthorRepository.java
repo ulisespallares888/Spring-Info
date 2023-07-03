@@ -1,4 +1,9 @@
 package com.InfoSpring.API.repository;
 
-public interface AuthorRepository {
+import com.InfoSpring.API.domain.Author;
+import org.springframework.stereotype.Repository;
+
+import java.util.UUID;
+@Repository
+public interface AuthorRepository extends BaseRepository<Author, UUID> {
 }

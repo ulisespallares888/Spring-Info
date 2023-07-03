@@ -18,13 +18,13 @@ import java.time.LocalDate;
 public class Author extends BaseEntity {
 
     @Column(length = 40,columnDefinition = "varchar(40)",updatable = true,nullable = false)
-    private String nombre;
+    private String name;
 
-    @Column(length = 40,columnDefinition = "varchar(40)",updatable = false,nullable = false)
-    private String apellido;
+    @Column(length = 40,columnDefinition = "varchar(40)",updatable = true,nullable = false)
+    private String lastName;
 
     @Column
-    private LocalDate fechaNacimiento;
+    private LocalDate birthDay;
 
 
 

@@ -1,14 +1,9 @@
 package com.InfoSpring.API.services.impl;
 
 import com.InfoSpring.API.domain.BaseEntity;
-import com.InfoSpring.API.domain.Book;
 import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.services.BaseService;
 import jakarta.transaction.Transactional;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
-import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
