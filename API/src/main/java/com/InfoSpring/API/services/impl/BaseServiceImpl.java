@@ -28,7 +28,6 @@ public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID> im
     }
 
 
-
     @Override
     @Transactional
     public E findById(ID id) throws Exception {
@@ -56,8 +55,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID> im
     public E update(ID id, E entity) throws Exception {
         try{
             Optional<E> entityOptional = baseRepository.findById(id);
-            E entityUpdate = entityOptional.get();
-            entityUpdate = baseRepository.save(entity);
+            E entityUpdate = baseRepository.save(entity);
             return entityUpdate;
         } catch (Exception e){
             throw new Exception(e.getMessage());

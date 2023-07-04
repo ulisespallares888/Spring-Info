@@ -20,17 +20,17 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.findAll());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getOne(@PathVariable UUID id){
+    public ResponseEntity<?> getOne(@PathVariable(value = "id") UUID id){
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.findById(id));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
@@ -39,16 +39,16 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.save(entity));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable UUID id,@RequestBody E entity) {
+    public ResponseEntity<?> update(@PathVariable(value = "id") UUID id, @RequestBody E entity) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.update(id, entity));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
@@ -57,7 +57,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
         try {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(servicio.delete(id));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
