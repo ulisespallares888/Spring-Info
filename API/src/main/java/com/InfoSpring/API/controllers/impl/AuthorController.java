@@ -3,7 +3,6 @@ package com.InfoSpring.API.controllers.impl;
 import com.InfoSpring.API.domain.Author;
 import com.InfoSpring.API.services.impl.AuthorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -5,6 +5,7 @@ import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.repository.BookRepository;
 import com.InfoSpring.API.services.BookService;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

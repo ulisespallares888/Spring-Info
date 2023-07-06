@@ -4,11 +4,13 @@ import com.InfoSpring.API.domain.BaseEntity;
 import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.services.BaseService;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-
+@Slf4j
 public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID> implements BaseService<E,ID> {
     protected BaseRepository<E, ID> baseRepository;
 
@@ -21,6 +23,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID> im
     public List<E> findAll() throws Exception {
         try{
             List<E> entities = baseRepository.findAll();
+            log.info("Devuelve todos los libros");
             return entities;
         } catch (Exception e){
             throw new Exception(e.getMessage());
