@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.UUID;
 @Service
+@Slf4j
 public class BookServiceImpl extends BaseServiceImpl<Book, UUID> implements BookService{
 
     @Autowired
@@ -26,8 +27,10 @@ public class BookServiceImpl extends BaseServiceImpl<Book, UUID> implements Book
     public Book findBookByTitle(String title) throws Exception {
         try{
             Optional<Book> entityOptional = Optional.ofNullable(bookRepository.findBookByTitle(title));
+            log.info("Book returned");
             return entityOptional.get();
         } catch (Exception e){
+            log.error(e.getMessage());
             throw new Exception(e.getMessage());
         }
 
