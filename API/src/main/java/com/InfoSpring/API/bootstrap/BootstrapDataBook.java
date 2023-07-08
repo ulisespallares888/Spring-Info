@@ -26,7 +26,7 @@ public class BootstrapDataBook implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        log.info("Runing BootsrapDataBook");
+        log.info("Running BootstrapDataBook");
 
         loadBookData();
     }

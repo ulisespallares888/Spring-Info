@@ -3,17 +3,16 @@ package com.InfoSpring.API.domain;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "review")
 public class Review extends BaseEntity{
@@ -26,6 +25,24 @@ public class Review extends BaseEntity{
     private String content;
     @Column(nullable = false)
     private Integer score;
-    @Column(nullable = false)
+    @Column
     private LocalDate creationDate;
+
+    public static ReviewBuilder builder(){
+        return new ReviewBuilder(new Review());
+    }
+
+    public static class ReviewBuilder{
+        public Review review;
+
+        public ReviewBuilder(Review review){
+            this.review = review;
+        }
+
+        public Review.ReviewBuilder uuid(UUID uuid){
+            this.review.setUuid(uuid);
+            return this;
+        }
+    }
+
 }

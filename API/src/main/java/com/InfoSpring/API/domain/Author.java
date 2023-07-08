@@ -26,6 +26,4 @@ public class Author extends BaseEntity {
     @Column
     private LocalDate birthDay;
 
-
-
 }

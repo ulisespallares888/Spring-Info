@@ -17,12 +17,12 @@ public class EditorialServiceCsvImpl implements EditorialServiceCsv {
 
     @Override
     public List<EditorialRecordCsv> convertCSV(File file) throws FileNotFoundException {
-        List<EditorialRecordCsv> bookCsvRecordList =
+        List<EditorialRecordCsv> editorialRecordCsvlist =
                 new CsvToBeanBuilder<EditorialRecordCsv>(new FileReader(file))
                         .withType(EditorialRecordCsv.class)
                         .build()
                         .parse();
-        log.info("Conviertiendo CSV a lista de editoriales");
-        return bookCsvRecordList;
+        log.info("Turning CSV file to editorials list");
+        return editorialRecordCsvlist;
     }
 }

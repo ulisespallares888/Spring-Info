@@ -30,18 +30,18 @@ public class BootstrapDataEditorial implements CommandLineRunner {
     private final EditorialServiceCsv editorialServiceCsv;
     @Override
     public void run(String... args) throws Exception {
-        log.info("Running BootsrapDataEditorial");
+        log.info("Running BootstrapDataEditorial");
         loadEditorialData();
     }
 
     private void loadEditorialData() throws FileNotFoundException {
         if (editorialRepository.count() < 100){
             File file = ResourceUtils.getFile("classpath:csvdata/editorial_data.csv");
-            List<EditorialRecordCsv> bookCsvRecordList = editorialServiceCsv.convertCSV(file);
+            List<EditorialRecordCsv> editorialRecordCsvList = editorialServiceCsv.convertCSV(file);
 
-            if (!bookCsvRecordList.isEmpty()){
+            if (!editorialRecordCsvList.isEmpty()){
                 log.info("Loading database with editorials");
-                for (EditorialRecordCsv editorialRecordCsv: bookCsvRecordList) {
+                for (EditorialRecordCsv editorialRecordCsv: editorialRecordCsvList) {
                     editorialRepository.save(
                             Editorial.builder()
                                     .uuid(UUID.randomUUID())

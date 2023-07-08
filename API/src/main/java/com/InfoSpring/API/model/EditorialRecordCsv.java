@@ -1,7 +1,6 @@
 package com.InfoSpring.API.model;
 
 import com.opencsv.bean.CsvBindByName;
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

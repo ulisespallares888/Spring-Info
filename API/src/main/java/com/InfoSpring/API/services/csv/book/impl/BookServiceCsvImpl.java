@@ -23,7 +23,7 @@ public class BookServiceCsvImpl implements BookServiceCsv {
                         .withType(BookRecordCsv.class)
                         .build()
                         .parse();
-        log.info("Conviertiendo CSV a lista de Libros");
+        log.info("Turning CSV file to books list");
         return bookCsvRecordList;
     }
 }
