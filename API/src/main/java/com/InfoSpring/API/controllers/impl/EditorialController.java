@@ -2,8 +2,7 @@ package com.InfoSpring.API.controllers.impl;
 
 
 import com.InfoSpring.API.domain.Editorial;
-import com.InfoSpring.API.services.EditorialService;
-import com.InfoSpring.API.services.impl.EditorialServiceImpl;
+import com.InfoSpring.API.services.editorial.impl.EditorialServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

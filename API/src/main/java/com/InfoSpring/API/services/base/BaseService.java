@@ -1,4 +1,4 @@
-package com.InfoSpring.API.services;
+package com.InfoSpring.API.services.base;
 
 import com.InfoSpring.API.domain.BaseEntity;
 

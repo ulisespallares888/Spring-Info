@@ -1,9 +1,10 @@
-package com.InfoSpring.API.services.impl;
+package com.InfoSpring.API.services.author.impl;
 
 import com.InfoSpring.API.domain.Author;
 import com.InfoSpring.API.repository.AuthorRepository;
 import com.InfoSpring.API.repository.BaseRepository;
-import com.InfoSpring.API.services.AuthorService;
+import com.InfoSpring.API.services.author.AuthorService;
+import com.InfoSpring.API.services.base.impl.BaseServiceImpl;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

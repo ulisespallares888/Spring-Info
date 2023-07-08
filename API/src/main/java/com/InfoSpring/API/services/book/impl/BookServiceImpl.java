@@ -1,9 +1,10 @@
-package com.InfoSpring.API.services.impl;
+package com.InfoSpring.API.services.book.impl;
 
 import com.InfoSpring.API.domain.Book;
 import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.repository.BookRepository;
-import com.InfoSpring.API.services.BookService;
+import com.InfoSpring.API.services.book.BookService;
+import com.InfoSpring.API.services.base.impl.BaseServiceImpl;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 @Service
 @Slf4j
-public class BookServiceImpl extends BaseServiceImpl<Book, UUID> implements BookService{
+public class BookServiceImpl extends BaseServiceImpl<Book, UUID> implements BookService {
 
     @Autowired
     private BookRepository bookRepository;

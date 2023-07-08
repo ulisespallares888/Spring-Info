@@ -1,7 +1,6 @@
-package com.InfoSpring.API.services;
+package com.InfoSpring.API.services.category;
 
 import com.InfoSpring.API.domain.Category;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,5 +8,5 @@ import java.util.UUID;
 public interface CategoryService {
     List<Category> findAll() throws Exception;
 
-   Category findById(UUID uuid) throws Exception;
+    Category findById(UUID uuid) throws Exception;
 }

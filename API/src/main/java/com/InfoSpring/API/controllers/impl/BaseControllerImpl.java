@@ -2,7 +2,7 @@ package com.InfoSpring.API.controllers.impl;
 
 import com.InfoSpring.API.controllers.BaseController;
 import com.InfoSpring.API.domain.BaseEntity;
-import com.InfoSpring.API.services.impl.BaseServiceImpl;
+import com.InfoSpring.API.services.base.impl.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

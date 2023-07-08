@@ -1,7 +1,7 @@
 package com.InfoSpring.API.controllers.impl;
 
 import com.InfoSpring.API.domain.Book;
-import com.InfoSpring.API.services.impl.BookServiceImpl;
+import com.InfoSpring.API.services.book.impl.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

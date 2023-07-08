@@ -1,6 +1,7 @@
-package com.InfoSpring.API.services;
+package com.InfoSpring.API.services.author;
 
 import com.InfoSpring.API.domain.Author;
+import com.InfoSpring.API.services.base.BaseService;
 
 import java.util.UUID;
 

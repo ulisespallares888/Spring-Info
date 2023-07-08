@@ -1,7 +1,7 @@
 package com.InfoSpring.API.controllers.impl;
 
 import com.InfoSpring.API.domain.Author;
-import com.InfoSpring.API.services.impl.AuthorServiceImpl;
+import com.InfoSpring.API.services.author.impl.AuthorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.InfoSpring.API.controllers.impl;
 
 import com.InfoSpring.API.domain.Review;
-import com.InfoSpring.API.services.impl.ReviewServiceImpl;
+import com.InfoSpring.API.services.review.impl.ReviewServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

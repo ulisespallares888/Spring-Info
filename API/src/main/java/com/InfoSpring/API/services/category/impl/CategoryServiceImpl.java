@@ -1,11 +1,10 @@
-package com.InfoSpring.API.services.impl;
+package com.InfoSpring.API.services.category.impl;
 
 import com.InfoSpring.API.domain.Category;
 import com.InfoSpring.API.repository.CategoryRepository;
-import com.InfoSpring.API.services.CategoryService;
+import com.InfoSpring.API.services.category.CategoryService;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

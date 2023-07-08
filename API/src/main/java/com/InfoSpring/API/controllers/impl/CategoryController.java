@@ -1,7 +1,7 @@
 package com.InfoSpring.API.controllers.impl;
 
 
-import com.InfoSpring.API.services.impl.CategoryServiceImpl;
+import com.InfoSpring.API.services.category.impl.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,8 @@
-package com.InfoSpring.API.services.impl;
+package com.InfoSpring.API.services.base.impl;
 
 import com.InfoSpring.API.domain.BaseEntity;
 import com.InfoSpring.API.repository.BaseRepository;
-import com.InfoSpring.API.services.BaseService;
+import com.InfoSpring.API.services.base.BaseService;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
