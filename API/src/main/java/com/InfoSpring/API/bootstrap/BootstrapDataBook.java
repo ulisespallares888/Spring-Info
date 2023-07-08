@@ -18,7 +18,7 @@ import java.util.UUID;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class BootstrapData implements CommandLineRunner {
+public class BootstrapDataBook implements CommandLineRunner {
 
     private final BookRepository bookRepository;
 
@@ -26,7 +26,7 @@ public class BootstrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        log.info("Corriendo BootsrapData");
+        log.info("Runing BootsrapDataBook");
 
         loadBookData();
     }
@@ -37,7 +37,7 @@ public class BootstrapData implements CommandLineRunner {
             List<BookRecordCsv> bookCsvRecordList = bookServiceCsv.convertCSV(file);
 
             if (!bookCsvRecordList.isEmpty()){
-                log.info("Cargando base de datos con libros");
+                log.info("Loading database with books");
                 for (BookRecordCsv bookCsvRecord: bookCsvRecordList) {
                     bookRepository.save(
                             Book.builder()
