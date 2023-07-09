@@ -3,6 +3,7 @@ package com.InfoSpring.API.controllers.impl;
 import com.InfoSpring.API.controllers.BaseController;
 import com.InfoSpring.API.domain.BaseEntity;
 import com.InfoSpring.API.services.base.impl.BaseServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-
+@Slf4j
 public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseServiceImpl<E, UUID>> implements BaseController<E, UUID> {
     @Autowired
     protected S servicio;
 
+    private static final String PATH="/api/v1/";
     @GetMapping("")
     public ResponseEntity<?> getAll() {
         try {
@@ -37,7 +39,12 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
     @PostMapping("")
     public ResponseEntity<?> save(@RequestBody E entity){
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.save(entity));
+            E entitySaved = servicio.save(entity);
+            String header = PATH + entitySaved.getClass().getSimpleName().toLowerCase() +"/"+ entitySaved.getUuid();
+            return ResponseEntity.status(HttpStatus.OK)
+                    .header("Location",header)
+                    .body(entitySaved);
+
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\": \"" + e.getMessage() + "\"}");
         }

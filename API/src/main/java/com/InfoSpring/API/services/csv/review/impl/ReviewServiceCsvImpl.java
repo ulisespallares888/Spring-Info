@@ -20,7 +20,7 @@ public class ReviewServiceCsvImpl implements ReviewServiceCsv {
                         .withType(ReviewRecordCsv.class)
                         .build()
                         .parse();
-        log.info("Turning CSV file to editoriales");
+        log.info("Turning CSV file to reviews");
         return reviewRecordCsvlist;
     }
 }

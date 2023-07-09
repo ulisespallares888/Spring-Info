@@ -18,8 +18,8 @@ public class BookController extends BaseControllerImpl<Book, BookServiceImpl> {
         this.bookService = bookService;
     }
 
-    @GetMapping("/title/{titleBook}")
-    public ResponseEntity<?> findBookByTitle(@PathVariable("titleBook") String titleBook){
+    @GetMapping("/title")
+    public ResponseEntity<?> findBookByTitle(@RequestParam("titleBook") String titleBook){
         try {
             return ResponseEntity.status(HttpStatus.OK).body(bookService.findBookByTitle(titleBook));
         } catch (Exception e) {
