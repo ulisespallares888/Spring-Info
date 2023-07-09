@@ -15,12 +15,17 @@ import java.util.List;
 public class ReviewServiceCsvImpl implements ReviewServiceCsv {
     @Override
     public List<ReviewRecordCsv> convertCSV(File file) throws FileNotFoundException {
-        List<ReviewRecordCsv> reviewRecordCsvlist =
-                new CsvToBeanBuilder<ReviewRecordCsv>(new FileReader(file))
-                        .withType(ReviewRecordCsv.class)
-                        .build()
-                        .parse();
-        log.info("Turning CSV file to reviews");
-        return reviewRecordCsvlist;
+        try {
+            List<ReviewRecordCsv> reviewRecordCsvlist =
+                    new CsvToBeanBuilder<ReviewRecordCsv>(new FileReader(file))
+                            .withType(ReviewRecordCsv.class)
+                            .build()
+                            .parse();
+            log.info("Turning CSV file to reviews");
+            return reviewRecordCsvlist;
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+        return null;
     }
 }

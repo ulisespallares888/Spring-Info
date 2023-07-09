@@ -19,11 +19,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Slf4j
 @Component
-public class BootstrapDataReview {//implements CommandLineRunner {
+public class BootstrapDataReview implements CommandLineRunner {
 
     private final  ReviewServiceCsv reviewServiceCsv;
     private final  ReviewRepository reviewRepository;
-/*
+
     @Override
     public void run(String... args) throws Exception {
         log.info("Running BootstrapDataReview");
@@ -32,10 +32,9 @@ public class BootstrapDataReview {//implements CommandLineRunner {
     }
 
 
- */
+
 
     private void loadReviewData() throws FileNotFoundException {
-
         if (reviewRepository.count() < 100){
             File file = ResourceUtils.getFile("classpath:csvdata/review_data.csv");
             log.info("Instante antes de crear la lista");
@@ -47,8 +46,8 @@ public class BootstrapDataReview {//implements CommandLineRunner {
                     reviewRepository.save(
                                 Review.builder()
                                 .uuid(UUID.randomUUID())
-                                .nameBook(ReviewRecordCsv.getNameBook())
                                 .title(ReviewRecordCsv.getTitle())
+                                .nameBook(ReviewRecordCsv.getNameBook())
                                 .content(ReviewRecordCsv.getContent())
                                 .score(ReviewRecordCsv.getScore())
                                 .creationDate(ReviewRecordCsv.getCreationDate())

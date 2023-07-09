@@ -25,7 +25,7 @@ public class Review extends BaseEntity{
     private String content;
     @Column(nullable = false)
     private Integer score;
-    @Column()
+    @Column(nullable = false)
     private LocalDate creationDate;
 
     public static ReviewBuilder builder(){

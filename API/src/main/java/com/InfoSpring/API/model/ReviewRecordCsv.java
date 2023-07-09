@@ -1,17 +1,18 @@
 package com.InfoSpring.API.model;
 
 import com.opencsv.bean.CsvBindByName;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import com.opencsv.bean.CsvDate;
+import lombok.*;
+
 import java.time.LocalDate;
+
 
 
 @Setter
 @Getter
 @RequiredArgsConstructor
 @AllArgsConstructor
+@ToString
 public class ReviewRecordCsv {
 
     @CsvBindByName(column = "title")
@@ -23,6 +24,6 @@ public class ReviewRecordCsv {
     @CsvBindByName(column = "score")
     private Integer score;
     @CsvBindByName(column = "creation_date")
+    @CsvDate("yyyy-MM-dd")
     private LocalDate creationDate;
-
 }
