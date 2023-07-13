@@ -1,6 +1,6 @@
 package com.InfoSpring.API.services.csv.review.impl;
 
-import com.InfoSpring.API.model.ReviewRecordCsv;
+import com.InfoSpring.API.model.csv.ReviewRecordCsv;
 import com.InfoSpring.API.services.csv.review.ReviewServiceCsv;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.extern.slf4j.Slf4j;

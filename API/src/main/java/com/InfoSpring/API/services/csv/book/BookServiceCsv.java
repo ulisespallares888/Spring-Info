@@ -1,6 +1,6 @@
 package com.InfoSpring.API.services.csv.book;
 
-import com.InfoSpring.API.model.BookRecordCsv;
+import com.InfoSpring.API.model.csv.BookRecordCsv;
 
 import java.io.File;
 import java.io.FileNotFoundException;

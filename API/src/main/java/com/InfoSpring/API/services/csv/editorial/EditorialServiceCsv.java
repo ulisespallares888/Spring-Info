@@ -1,6 +1,6 @@
 package com.InfoSpring.API.services.csv.editorial;
 
-import com.InfoSpring.API.model.EditorialRecordCsv;
+import com.InfoSpring.API.model.csv.EditorialRecordCsv;
 
 import java.io.File;
 import java.io.FileNotFoundException;

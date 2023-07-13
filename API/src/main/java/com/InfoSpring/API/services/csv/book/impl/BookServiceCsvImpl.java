@@ -1,7 +1,7 @@
 package com.InfoSpring.API.services.csv.book.impl;
 
 
-import com.InfoSpring.API.model.BookRecordCsv;
+import com.InfoSpring.API.model.csv.BookRecordCsv;
 import com.InfoSpring.API.services.csv.book.BookServiceCsv;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.extern.slf4j.Slf4j;

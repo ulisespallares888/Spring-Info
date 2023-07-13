@@ -1,6 +1,6 @@
 package com.InfoSpring.API.services.csv.review;
 
-import com.InfoSpring.API.model.ReviewRecordCsv;
+import com.InfoSpring.API.model.csv.ReviewRecordCsv;
 
 import java.io.File;
 import java.io.FileNotFoundException;

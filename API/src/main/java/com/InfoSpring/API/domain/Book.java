@@ -16,18 +16,24 @@ public class Book extends BaseEntity {
     @Column(length = 100, columnDefinition = "varchar(100)", updatable = true, nullable = false)
     private String title;
 
-    @Column(length = 100,columnDefinition = "varchar(100)", updatable = true, nullable = false)
-    private String author;
+    @ManyToOne
+    private Author author;
 
     @Column(unique = true)
     private String isbn;
 
     private int numberPages;
+
+    public void setAuthor(Author author){
+        this.author = author;
+        this.getAuthor().getBooks().add(this);
+    }
+
     @Override
     public String toString() {
         return "Book{" +
                 "title='" + title + '\'' +
-                ", author='" + author + '\'' +
+                ", author='" + author.getName() + '\'' +
                 '}';
     }
 
@@ -54,7 +60,7 @@ public class Book extends BaseEntity {
             return this ;
         }
 
-        public BookBuilder author(String author) {
+        public BookBuilder author(Author author) {
             this.book.author = author;
             return this;
         }

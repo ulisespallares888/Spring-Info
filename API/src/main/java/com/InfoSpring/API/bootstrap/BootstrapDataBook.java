@@ -1,7 +1,7 @@
 package com.InfoSpring.API.bootstrap;
 
 import com.InfoSpring.API.domain.Book;
-import com.InfoSpring.API.model.BookRecordCsv;
+import com.InfoSpring.API.model.csv.BookRecordCsv;
 import com.InfoSpring.API.repository.BookRepository;
 import com.InfoSpring.API.services.csv.book.BookServiceCsv;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ public class BootstrapDataBook implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("Running BootstrapDataBook");
 
-        loadBookData();
+        //loadBookData();
     }
 
     private void loadBookData() throws FileNotFoundException {

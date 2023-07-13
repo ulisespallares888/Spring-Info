@@ -2,7 +2,7 @@ package com.InfoSpring.API.bootstrap;
 
 
 import com.InfoSpring.API.domain.Review;
-import com.InfoSpring.API.model.ReviewRecordCsv;
+import com.InfoSpring.API.model.csv.ReviewRecordCsv;
 import com.InfoSpring.API.repository.ReviewRepository;
 import com.InfoSpring.API.services.csv.review.ReviewServiceCsv;
 import lombok.RequiredArgsConstructor;

@@ -15,8 +15,8 @@ import java.util.UUID;
 public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseServiceImpl<E, UUID>> implements BaseController<E, UUID> {
     @Autowired
     protected S servicio;
-
-    private static final String PATH="/api/v1/";
+    private static final String PATH = "/api/v1/";
+    @Override
     @GetMapping("")
     public ResponseEntity<?> getAll() {
         try {
@@ -27,6 +27,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
     }
 
 
+    @Override
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable(value = "id") UUID id){
         try {
@@ -36,6 +37,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
         }
     }
 
+    @Override
     @PostMapping("")
     public ResponseEntity<?> save(@RequestBody E entity){
         try {
@@ -50,6 +52,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
         }
     }
 
+    @Override
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable(value = "id") UUID id, @RequestBody E entity) {
         try {
@@ -59,6 +62,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
         }
     }
 
+    @Override
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable UUID id) {
         try {

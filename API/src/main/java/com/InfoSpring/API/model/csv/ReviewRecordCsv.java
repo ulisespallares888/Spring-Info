@@ -1,4 +1,4 @@
-package com.InfoSpring.API.model;
+package com.InfoSpring.API.model.csv;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;

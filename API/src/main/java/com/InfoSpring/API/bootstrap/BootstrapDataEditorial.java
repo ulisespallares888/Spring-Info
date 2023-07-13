@@ -1,16 +1,11 @@
 package com.InfoSpring.API.bootstrap;
 
-import com.InfoSpring.API.domain.Book;
 import com.InfoSpring.API.domain.Editorial;
-import com.InfoSpring.API.model.BookRecordCsv;
-import com.InfoSpring.API.model.EditorialRecordCsv;
-import com.InfoSpring.API.repository.BookRepository;
+import com.InfoSpring.API.model.csv.EditorialRecordCsv;
 import com.InfoSpring.API.repository.EditorialRepository;
-import com.InfoSpring.API.services.csv.book.BookServiceCsv;
 import com.InfoSpring.API.services.csv.editorial.EditorialServiceCsv;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.annotations.Comment;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;

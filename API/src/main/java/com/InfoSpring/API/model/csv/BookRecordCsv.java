@@ -1,5 +1,6 @@
-package com.InfoSpring.API.model;
+package com.InfoSpring.API.model.csv;
 
+import com.InfoSpring.API.domain.Author;
 import com.opencsv.bean.CsvBindByName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,7 @@ public class BookRecordCsv {
     @CsvBindByName(column = "title")
     private String title;
     @CsvBindByName(column = "author")
-    private String author;
+    private Author author;
     @CsvBindByName(column = "number_page")
     private String numberPage;
 }

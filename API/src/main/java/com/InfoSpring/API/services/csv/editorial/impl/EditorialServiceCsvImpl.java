@@ -1,7 +1,6 @@
 package com.InfoSpring.API.services.csv.editorial.impl;
 
-import com.InfoSpring.API.model.BookRecordCsv;
-import com.InfoSpring.API.model.EditorialRecordCsv;
+import com.InfoSpring.API.model.csv.EditorialRecordCsv;
 import com.InfoSpring.API.services.csv.editorial.EditorialServiceCsv;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.extern.slf4j.Slf4j;
