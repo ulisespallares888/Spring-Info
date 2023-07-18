@@ -24,8 +24,6 @@ public class AuthorMapperImpl implements EntityMapper<Author,AuthorDto>, AuthorM
        return authorDto;
     }
 
-
-
     @Override
     public Author dtoToEntity(AuthorDto authorDto) {
         Author author = Author.builder()
