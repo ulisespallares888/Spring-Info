@@ -1,5 +1,6 @@
 package com.InfoSpring.API.domain;
 
+import com.InfoSpring.API.domain.enumeration.CalificationEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -24,7 +25,7 @@ public class Review extends BaseEntity{
     @Column(nullable = false)
     private String content;
     @Column(nullable = false)
-    private Integer score;
+    private CalificationEnum calification;
     @Column(nullable = false)
     private LocalDate creationDate;
 

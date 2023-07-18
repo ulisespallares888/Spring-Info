@@ -28,7 +28,7 @@ public class BootstrapDataReview implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("Running BootstrapDataReview");
 
-        loadReviewData();
+        //loadReviewData();
     }
 
 
