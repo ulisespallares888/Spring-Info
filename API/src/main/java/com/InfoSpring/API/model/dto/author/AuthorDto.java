@@ -1,6 +1,8 @@
 package com.InfoSpring.API.model.dto.author;
 
-import com.InfoSpring.API.domain.Book;
+
+import com.InfoSpring.API.model.dto.DTO;
+import com.InfoSpring.API.model.dto.book.BookDto;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -12,9 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuthorDto {
+public class AuthorDto extends DTO {
     private String name;
     private String lastName;
     private LocalDate birthDay;
-    private List<Book> books = new ArrayList<>();
+    private List<BookDto> booksDto = new ArrayList<>();
 }

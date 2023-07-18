@@ -1,6 +1,7 @@
 package com.InfoSpring.API.controllers.impl;
 
 import com.InfoSpring.API.domain.Author;
+import com.InfoSpring.API.model.dto.author.AuthorDto;
 import com.InfoSpring.API.services.author.impl.AuthorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,12 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "api/v1/author")
-public class AuthorController extends BaseControllerImpl<Author, AuthorServiceImpl> {
+public class AuthorController extends BaseControllerImpl<Author, AuthorServiceImpl, AuthorDto> {
+
     AuthorServiceImpl authorService;
     @Autowired
     public AuthorController (AuthorServiceImpl authorService){
         this.authorService = authorService;
     }
+
     @GetMapping("/name/{nameAuthor}")
     public ResponseEntity<?> findAuthorByName(@PathVariable("nameAuthor") String nameAuthor)  {
         try {

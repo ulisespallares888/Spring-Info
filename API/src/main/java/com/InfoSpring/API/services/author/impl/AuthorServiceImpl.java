@@ -1,6 +1,7 @@
 package com.InfoSpring.API.services.author.impl;
 
 import com.InfoSpring.API.domain.Author;
+import com.InfoSpring.API.model.dto.author.AuthorDto;
 import com.InfoSpring.API.repository.AuthorRepository;
 import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.services.author.AuthorService;
@@ -12,8 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;
-@Service
 @Slf4j
+@Service
 public class AuthorServiceImpl extends BaseServiceImpl<Author, UUID> implements AuthorService {
 
     @Autowired

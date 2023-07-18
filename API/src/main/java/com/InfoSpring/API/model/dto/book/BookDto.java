@@ -1,5 +1,6 @@
 package com.InfoSpring.API.model.dto.book;
 
+import com.InfoSpring.API.model.dto.DTO;
 import lombok.*;
 
 @Setter
@@ -7,9 +8,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BookDto {
+public class BookDto extends DTO {
     private String title;
-    private String author;
     private String isbn;
     private int numberPages;
+    private String idAuthor;
+
 }
