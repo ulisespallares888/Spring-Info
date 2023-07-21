@@ -2,15 +2,18 @@ package com.InfoSpring.API.mapper.book.impl;
 
 import com.InfoSpring.API.domain.Author;
 import com.InfoSpring.API.domain.Book;
-import com.InfoSpring.API.mapper.EntityMapper;
+import com.InfoSpring.API.mapper.book.BookMapper;
+import com.InfoSpring.API.mapper.mapperbase.EntityMapper;
+import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
 import com.InfoSpring.API.model.dto.book.BookDto;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
 
+
 @Component
-public class BookMapperImpl implements EntityMapper<Book, BookDto> {
+public class BookMapperImpl extends EntityMapperImpl<Book, BookDto> implements BookMapper {
     @Override
     public BookDto entityToDto(Book book) {
         BookDto bookDto = BookDto.builder()

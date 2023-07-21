@@ -1,18 +1,17 @@
 package com.InfoSpring.API.mapper.author.impl;
 
 import com.InfoSpring.API.domain.Author;
-import com.InfoSpring.API.mapper.EntityMapper;
 import com.InfoSpring.API.mapper.author.AuthorMapper;
 import com.InfoSpring.API.mapper.book.impl.BookMapperImpl;
+import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
 import com.InfoSpring.API.model.dto.author.AuthorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthorMapperImpl implements EntityMapper<Author,AuthorDto>, AuthorMapper {
+public class AuthorMapperImpl extends EntityMapperImpl<Author,AuthorDto> implements AuthorMapper {
     @Autowired
     BookMapperImpl bookMapper;
-
     @Override
     public AuthorDto entityToDto(Author author) {
        AuthorDto authorDto = AuthorDto.builder()

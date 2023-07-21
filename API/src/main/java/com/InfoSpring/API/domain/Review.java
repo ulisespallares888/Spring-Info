@@ -1,9 +1,7 @@
 package com.InfoSpring.API.domain;
 
-import com.InfoSpring.API.domain.enumeration.CalificationEnum;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.InfoSpring.API.domain.enumeration.RatingEnum;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -20,12 +18,16 @@ public class Review extends BaseEntity{
 
     @Column(length = 100,nullable = false)
     private String title;
+
     @Column(length = 100,nullable = false)
     private String nameBook;
+
     @Column(nullable = false)
     private String content;
-    @Column(nullable = false)
-    private CalificationEnum calification;
+
+    @Enumerated(EnumType.STRING)
+    private RatingEnum ratingEnum;
+
     @Column(nullable = false)
     private LocalDate creationDate;
 

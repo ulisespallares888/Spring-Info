@@ -1,6 +1,9 @@
 package com.InfoSpring.API.services.author.impl;
 
 import com.InfoSpring.API.domain.Author;
+import com.InfoSpring.API.mapper.author.impl.AuthorMapperImpl;
+import com.InfoSpring.API.mapper.mapperbase.EntityMapper;
+import com.InfoSpring.API.model.dto.DTO;
 import com.InfoSpring.API.model.dto.author.AuthorDto;
 import com.InfoSpring.API.repository.AuthorRepository;
 import com.InfoSpring.API.repository.BaseRepository;
@@ -10,18 +13,23 @@ import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 import java.util.UUID;
 @Slf4j
 @Service
-public class AuthorServiceImpl extends BaseServiceImpl<Author, UUID> implements AuthorService {
+public class AuthorServiceImpl extends BaseServiceImpl<Author, UUID, AuthorDto> implements AuthorService {
 
     @Autowired
-    AuthorRepository authorRepository;
-    public AuthorServiceImpl(BaseRepository<Author, UUID> baseRepository) {
-        super(baseRepository);
+    private final AuthorRepository authorRepository;
+    @Autowired
+    AuthorMapperImpl entityMapper;
+    @Autowired
+    public AuthorServiceImpl(BaseRepository<Author, UUID> baseRepository, AuthorMapperImpl entityMapper, AuthorRepository authorRepository) {
+        super(baseRepository, entityMapper);
+        this.authorRepository = authorRepository;
     }
+
+
 
     @Override
     @Transactional

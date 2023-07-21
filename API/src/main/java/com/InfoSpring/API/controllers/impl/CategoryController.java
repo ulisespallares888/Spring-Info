@@ -15,7 +15,8 @@ import java.util.UUID;
 @RequestMapping("api/v1/category")
 public class CategoryController {
 
-    CategoryServiceImpl categoryService;
+    @Autowired
+    private final CategoryServiceImpl categoryService;
     @Autowired
     public CategoryController(CategoryServiceImpl categoryService) {
         this.categoryService = categoryService;

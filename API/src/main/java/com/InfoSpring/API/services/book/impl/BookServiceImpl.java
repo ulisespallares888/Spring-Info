@@ -1,6 +1,9 @@
 package com.InfoSpring.API.services.book.impl;
 
 import com.InfoSpring.API.domain.Book;
+import com.InfoSpring.API.mapper.book.impl.BookMapperImpl;
+import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
+import com.InfoSpring.API.model.dto.book.BookDto;
 import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.repository.BookRepository;
 import com.InfoSpring.API.services.book.BookService;
@@ -15,14 +18,17 @@ import java.util.UUID;
 
 @Slf4j
 @Service
-public class BookServiceImpl extends BaseServiceImpl<Book, UUID> implements BookService {
+public class BookServiceImpl extends BaseServiceImpl<Book, UUID, BookDto> implements BookService {
 
-    @Autowired
+
     private BookRepository bookRepository;
 
-    public BookServiceImpl(BaseRepository<Book, UUID> baseRepository) {
-        super(baseRepository);
+    @Autowired
+    public BookServiceImpl(BaseRepository<Book, UUID> baseRepository, BookMapperImpl entityMapper, BookRepository bookRepository) {
+        super(baseRepository, entityMapper);
+        this.bookRepository = bookRepository;
     }
+
 
     @Override
     @Transactional

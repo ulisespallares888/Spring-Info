@@ -2,12 +2,18 @@ package com.InfoSpring.API.controllers.impl;
 
 import com.InfoSpring.API.controllers.BaseController;
 import com.InfoSpring.API.domain.BaseEntity;
-import com.InfoSpring.API.mapper.EntityMapper;
+import com.InfoSpring.API.mapper.mapperbase.EntityMapper;
+import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
+import com.InfoSpring.API.model.dto.DTO;
 import com.InfoSpring.API.services.base.impl.BaseServiceImpl;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.jpa.domain.QAbstractAuditable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -15,12 +21,22 @@ import java.util.List;
 import java.util.UUID;
 
 @Slf4j
-public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseServiceImpl<E, UUID>, DTO> implements BaseController<E, UUID>{
+@Component
+public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseServiceImpl<E, UUID, D>, D extends DTO> implements BaseController<E, UUID>{
     @Autowired
     protected S servicio;
+
+    protected  EntityMapper<E,DTO> entityMapper ;
     @Autowired
-    protected EntityMapper<E,DTO> entityMapper;
+    public BaseControllerImpl(S servicio, EntityMapperImpl<E, DTO> entityMapper) {
+        this.servicio = servicio;
+        this.entityMapper = entityMapper;
+    }
+
     private static final String PATH_V1 = "/api/v1/";
+
+    protected BaseControllerImpl() {
+    }
 
     @Override
     @GetMapping("")
@@ -39,6 +55,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
 
         for (E entity : entities) {
             DTO dto = entityMapper.entityToDto(entity);
+            log.info(dto.toString());
             dtos.add(dto);
         }
 
@@ -55,7 +72,6 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable(value = "id") UUID id){
         try {
-            log.info("asdasdasd");
             return ResponseEntity.status(HttpStatus.OK).body(servicio.findById(id));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
@@ -64,9 +80,9 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
 
     @Override
     @PostMapping("")
-    public ResponseEntity<?> save(@RequestBody E entity){
+    public ResponseEntity<?> save(@RequestBody DTO dto){
         try {
-            E entitySaved = servicio.save(entity);
+            E entitySaved = servicio.save(dto);
             String header = PATH_V1 + entitySaved.getClass().getSimpleName().toLowerCase() +"/"+ entitySaved.getUuid();
             return ResponseEntity.status(HttpStatus.OK)
                     .header("Location",header)

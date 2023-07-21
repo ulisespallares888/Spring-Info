@@ -1,6 +1,7 @@
 package com.InfoSpring.API.repository;
 
 import com.InfoSpring.API.domain.Book;
+import com.InfoSpring.API.model.dto.book.BookDto;
 import org.springframework.stereotype.Repository;
 
 

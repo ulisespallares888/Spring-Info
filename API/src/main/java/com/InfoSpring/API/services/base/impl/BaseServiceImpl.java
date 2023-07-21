@@ -1,22 +1,31 @@
 package com.InfoSpring.API.services.base.impl;
 
+import com.InfoSpring.API.domain.Author;
 import com.InfoSpring.API.domain.BaseEntity;
+import com.InfoSpring.API.mapper.mapperbase.EntityMapper;
+import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
+import com.InfoSpring.API.model.dto.DTO;
+import com.InfoSpring.API.model.dto.author.AuthorDto;
 import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.services.base.BaseService;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
-public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID> implements BaseService<E,ID> {
-    protected BaseRepository<E, ID> baseRepository;
+public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID, D extends DTO> implements BaseService<E,ID> {
 
-    public BaseServiceImpl(BaseRepository<E, ID> baseRepository) {
+    protected BaseRepository<E, ID> baseRepository;
+    protected EntityMapper<E,D> entityMapper;
+    @Autowired
+    public BaseServiceImpl(BaseRepository<E, ID> baseRepository, EntityMapper<E,D> entityMapper ) {
         this.baseRepository = baseRepository;
+        this.entityMapper = entityMapper;
     }
+
 
     @Override
     @Transactional
@@ -29,7 +38,6 @@ public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID> im
             throw new Exception(e.getMessage());
         }
     }
-
 
     @Override
     @Transactional
@@ -46,9 +54,9 @@ public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID> im
 
     @Override
     @Transactional
-    public E save(E entity) throws Exception {
+    public E save(DTO dto) throws Exception {
         try{
-            entity = baseRepository.save(entity);
+            E entity = baseRepository.save(entityMapper.dtoToEntity((D) dto));
             log.info("Resource created");
             return entity;
         } catch (Exception e){

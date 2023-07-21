@@ -28,7 +28,7 @@ public class BootstrapDataReview implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("Running BootstrapDataReview");
 
-        //loadReviewData();
+        loadReviewData();
     }
 
 
@@ -49,7 +49,7 @@ public class BootstrapDataReview implements CommandLineRunner {
                                 .title(ReviewRecordCsv.getTitle())
                                 .nameBook(ReviewRecordCsv.getNameBook())
                                 .content(ReviewRecordCsv.getContent())
-                                .score(ReviewRecordCsv.getScore())
+                                //.calification(ReviewRecordCsv.getScore())
                                 .creationDate(ReviewRecordCsv.getCreationDate())
                                 .build()
                     );
