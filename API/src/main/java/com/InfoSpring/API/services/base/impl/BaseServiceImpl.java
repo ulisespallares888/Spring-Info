@@ -1,11 +1,8 @@
 package com.InfoSpring.API.services.base.impl;
 
-import com.InfoSpring.API.domain.Author;
 import com.InfoSpring.API.domain.BaseEntity;
 import com.InfoSpring.API.mapper.mapperbase.EntityMapper;
-import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
 import com.InfoSpring.API.model.dto.DTO;
-import com.InfoSpring.API.model.dto.author.AuthorDto;
 import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.services.base.BaseService;
 import jakarta.transaction.Transactional;
@@ -16,7 +13,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
-public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID, D extends DTO> implements BaseService<E,ID> {
+public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID, D extends DTO> implements BaseService<E,ID,D> {
 
     protected BaseRepository<E, ID> baseRepository;
     protected EntityMapper<E,D> entityMapper;
@@ -56,9 +53,17 @@ public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID, D 
     @Transactional
     public E save(DTO dto) throws Exception {
         try{
-            E entity = baseRepository.save(entityMapper.dtoToEntity((D) dto));
+
+            log.info("Dentro de la ejecucion de servicio.save(dto) en BaseServiceImpl");
+            log.info(dto.toString()+"en el service");
+
+            E entitySaved = entityMapper.dtoToEntity((D) dto);
+
+            log.info(entitySaved.toString()+" entitySaved en el service");
+
+            entitySaved = baseRepository.save(entitySaved);
             log.info("Resource created");
-            return entity;
+            return entitySaved;
         } catch (Exception e){
             log.error(e.getMessage());
             throw new Exception(e.getMessage());

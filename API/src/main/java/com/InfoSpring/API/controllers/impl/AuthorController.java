@@ -7,6 +7,8 @@ import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
 import com.InfoSpring.API.model.dto.DTO;
 import com.InfoSpring.API.model.dto.author.AuthorDto;
 import com.InfoSpring.API.services.author.impl.AuthorServiceImpl;
+import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.transform.AliasToEntityMapResultTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Slf4j
 @RequestMapping(path = "api/v1/author")
 public class AuthorController extends BaseControllerImpl<Author, AuthorServiceImpl, AuthorDto> {
 
@@ -27,6 +30,8 @@ public class AuthorController extends BaseControllerImpl<Author, AuthorServiceIm
         super(authorService, (EntityMapperImpl<Author, DTO>) authorMapper);
         this.authorService = authorService;
     }
+
+
 
 
     @GetMapping("/name/{nameAuthor}")

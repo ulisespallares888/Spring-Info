@@ -3,7 +3,7 @@ package com.InfoSpring.API.mapper.mapperbase;
 import com.InfoSpring.API.domain.BaseEntity;
 import com.InfoSpring.API.model.dto.DTO;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
 
 
 @Component

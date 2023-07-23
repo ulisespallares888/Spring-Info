@@ -2,6 +2,7 @@ package com.InfoSpring.API.model.dto.editorial;
 
 import com.InfoSpring.API.model.dto.DTO;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.*;
 
 @AllArgsConstructor
@@ -10,6 +11,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
+@JsonTypeName("editorialDto")
 public class EditorialDto extends DTO {
     private String name;
     private String address;

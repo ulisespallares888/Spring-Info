@@ -2,9 +2,6 @@ package com.InfoSpring.API.services.editorial.impl;
 
 import com.InfoSpring.API.domain.Editorial;
 import com.InfoSpring.API.mapper.editorial.impl.EditorialMapperImpl;
-import com.InfoSpring.API.mapper.mapperbase.EntityMapper;
-import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
-import com.InfoSpring.API.model.dto.DTO;
 import com.InfoSpring.API.model.dto.editorial.EditorialDto;
 import com.InfoSpring.API.repository.BaseRepository;
 import com.InfoSpring.API.repository.EditorialRepository;

@@ -6,11 +6,9 @@ import com.InfoSpring.API.mapper.mapperbase.EntityMapper;
 import com.InfoSpring.API.mapper.mapperbase.impl.EntityMapperImpl;
 import com.InfoSpring.API.model.dto.DTO;
 import com.InfoSpring.API.services.base.impl.BaseServiceImpl;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.jpa.domain.QAbstractAuditable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -22,7 +20,7 @@ import java.util.UUID;
 
 @Slf4j
 @Component
-public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseServiceImpl<E, UUID, D>, D extends DTO> implements BaseController<E, UUID>{
+public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseServiceImpl<E, UUID, D>, D extends DTO> implements BaseController<E, UUID,DTO>{
     @Autowired
     protected S servicio;
 
@@ -55,7 +53,6 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
 
         for (E entity : entities) {
             DTO dto = entityMapper.entityToDto(entity);
-            log.info(dto.toString());
             dtos.add(dto);
         }
 
@@ -81,8 +78,14 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
     @Override
     @PostMapping("")
     public ResponseEntity<?> save(@RequestBody DTO dto){
+
         try {
+            log.info("Antes de la invocacion de servicio.save(dto) en BaseControllerImpl");
+            log.info(dto.toString()+" en el controller");
+
             E entitySaved = servicio.save(dto);
+            log.info(entitySaved.toString()+" entitySaved en el controller");
+
             String header = PATH_V1 + entitySaved.getClass().getSimpleName().toLowerCase() +"/"+ entitySaved.getUuid();
             return ResponseEntity.status(HttpStatus.OK)
                     .header("Location",header)
