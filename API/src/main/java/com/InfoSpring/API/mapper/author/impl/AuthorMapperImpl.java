@@ -8,10 +8,18 @@ import com.InfoSpring.API.model.dto.author.AuthorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
+
 @Component
 public class AuthorMapperImpl extends EntityMapperImpl<Author,AuthorDto> implements AuthorMapper {
+    private final BookMapperImpl bookMapper;
+
     @Autowired
-    BookMapperImpl bookMapper;
+    public AuthorMapperImpl(BookMapperImpl bookMapper) {
+        this.bookMapper = bookMapper;
+    }
+
+
     @Override
     public AuthorDto entityToDto(Author author) {
        AuthorDto authorDto = AuthorDto.builder()
@@ -33,5 +41,7 @@ public class AuthorMapperImpl extends EntityMapperImpl<Author,AuthorDto> impleme
                 .build();
         return author;
     }
+
+
 
 }

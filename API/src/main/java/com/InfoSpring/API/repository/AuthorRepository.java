@@ -1,7 +1,6 @@
 package com.InfoSpring.API.repository;
 
 import com.InfoSpring.API.domain.Author;
-import com.InfoSpring.API.model.dto.author.AuthorDto;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;

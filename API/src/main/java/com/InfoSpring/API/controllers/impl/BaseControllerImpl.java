@@ -69,7 +69,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable(value = "id") UUID id){
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.findById(id));
+            return ResponseEntity.status(HttpStatus.OK).body(entityMapper.entityToDto(servicio.findById(id)));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
@@ -80,12 +80,9 @@ public abstract class BaseControllerImpl<E extends BaseEntity, S extends BaseSer
     public ResponseEntity<?> save(@RequestBody DTO dto){
 
         try {
-            log.info("Antes de la invocacion de servicio.save(dto) en BaseControllerImpl");
-            log.info(dto.toString()+" en el controller");
+            log.info("en save de BaseController");
 
             E entitySaved = servicio.save(dto);
-            log.info(entitySaved.toString()+" entitySaved en el controller");
-
             String header = PATH_V1 + entitySaved.getClass().getSimpleName().toLowerCase() +"/"+ entitySaved.getUuid();
             return ResponseEntity.status(HttpStatus.OK)
                     .header("Location",header)

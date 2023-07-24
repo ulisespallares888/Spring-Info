@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @ToString
-@JsonTypeName("authorDto")
+@JsonTypeName("bookDto")
 public class BookDto extends DTO {
     private String title;
     private String isbn;

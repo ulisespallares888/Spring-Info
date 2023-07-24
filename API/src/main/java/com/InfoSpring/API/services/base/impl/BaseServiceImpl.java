@@ -53,15 +53,13 @@ public abstract class BaseServiceImpl <E extends BaseEntity, ID extends UUID, D 
     @Transactional
     public E save(DTO dto) throws Exception {
         try{
-
-            log.info("Dentro de la ejecucion de servicio.save(dto) en BaseServiceImpl");
-            log.info(dto.toString()+"en el service");
-
+            log.info(dto.toString());
             E entitySaved = entityMapper.dtoToEntity((D) dto);
 
-            log.info(entitySaved.toString()+" entitySaved en el service");
+            log.info(entitySaved.toString()+" dentro del save BaseServiceImpl ");
 
             entitySaved = baseRepository.save(entitySaved);
+
             log.info("Resource created");
             return entitySaved;
         } catch (Exception e){

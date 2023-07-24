@@ -3,7 +3,6 @@ package com.InfoSpring.API.services.author.impl;
 import com.InfoSpring.API.domain.Author;
 import com.InfoSpring.API.mapper.author.impl.AuthorMapperImpl;
 import com.InfoSpring.API.mapper.mapperbase.EntityMapper;
-import com.InfoSpring.API.model.dto.DTO;
 import com.InfoSpring.API.model.dto.author.AuthorDto;
 import com.InfoSpring.API.repository.AuthorRepository;
 import com.InfoSpring.API.repository.BaseRepository;
@@ -22,12 +21,14 @@ public class AuthorServiceImpl extends BaseServiceImpl<Author, UUID, AuthorDto> 
     @Autowired
     private final AuthorRepository authorRepository;
     @Autowired
-    AuthorMapperImpl entityMapper;
+    public AuthorMapperImpl authorMapper;
+
     @Autowired
-    public AuthorServiceImpl(BaseRepository<Author, UUID> baseRepository, AuthorMapperImpl entityMapper, AuthorRepository authorRepository) {
-        super(baseRepository, entityMapper);
+    public AuthorServiceImpl(BaseRepository<Author, UUID> baseRepository, AuthorMapperImpl authorMapper, AuthorRepository authorRepository) {
+        super(baseRepository, authorMapper);
         this.authorRepository = authorRepository;
     }
+
 
 
 
